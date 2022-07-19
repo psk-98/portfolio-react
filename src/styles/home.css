@@ -1,0 +1,141 @@
+.intro {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 20px;
+}
+.intro-name {
+    font-size: 50px;
+    font-weight: 500;
+}
+.intro-desc {
+    font-size: 18px;
+}
+.intro .social-links{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px 0;
+}
+.social-link {
+    margin: 0 15px 0 0;
+    transition: all .5s;
+}
+.social-link:hover {
+    transform: scale(1.5);
+}
+.skills-section {
+    margin: 0 0 60px 0;
+}
+.skills-section .section-heading, .projects-section .section-heading{
+    font-size: 35px;
+}
+.skills-section .skills-list {
+    margin: 20px 0;
+    font-size: 16px;
+}
+.skills-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.skill-block {
+    border: 1px solid #bfbfbf;
+    background: none;
+    color: #bfbfbf;
+    padding: 5px;
+    margin: 5px;
+    white-space: nowrap;
+}
+.background {
+    margin: 20px 5px;
+}
+.background-header, .project-heading {
+    font-size: 18px;
+    margin: 5px 0;
+}
+.background-desc {
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.background-desc p, .project-desc p {
+    margin: 4px 0;
+    font-weight: 300;
+}
+.project-display {
+    margin: 20px 0 50px 0;
+}
+.projects-section .skills-list {
+    font-size: 12px;
+    margin: 0;
+}
+.project-heading span {
+    color: #f2e529;
+    font-size: 22px;
+}
+.project-stack {
+    display: flex;
+}
+.project-link {
+    margin: 10px 0 30px ;
+}
+.project-link a {
+    text-decoration: none;
+}
+.project-link div {
+    background-color: #f2e529;
+    width: 150px;
+    padding: 20px;
+    box-shadow: #bfbfbf 10px 10px;
+    color: #262626;
+    font-weight: 500;
+}
+.project-img {
+    max-width: 70%;
+    width: 70%;
+    margin: 10px 0;
+}
+.project-img img {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .navbar .social-links {
+        display: flex;
+    }
+    
+    .intro-name {
+        font-size: 100px;
+    }
+    .intro-desc {
+        font-size: 50px;
+    }
+    .intro-desc span {
+        color: #f2e529;
+    }
+    .intro .social-links {
+        display: none;
+    }
+    .background-desc, .project-desc {
+        width: 80%;
+    }
+
+}
+@media (min-width: 1024px) {
+    .project-display {
+        display: flex;
+        justify-content: space-between;
+    }
+    .project-content, .project-img {
+        max-width: 49%;
+        width: 49%;
+    }
+    .project-img img {
+        max-width: 60%;
+        padding: 10%;
+    }
+
+}
