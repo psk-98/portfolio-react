@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Link, animateScroll as scroll } from 'react-scroll' 
+import { Link, Events } from 'react-scroll' 
 import { ExternalLink } from 'react-external-link'
 
 class Navbar extends Component {
@@ -15,7 +15,13 @@ class Navbar extends Component {
         })
     }
 
-    
+    componentDidMount(e) {
+        Events.scrollEvent.register('end', (to, element) => {
+            this.setState({
+                toggle: false,
+            })
+        })
+    }
 
     render () {
         return (
@@ -39,7 +45,8 @@ class Navbar extends Component {
                                 spy={true}
                                 smooth={true}
                             >
-                                About</Link>
+                                About
+                            </Link>
                         </div>
                         <div className='nav-link'>
                             <Link to="projects"
@@ -78,14 +85,23 @@ class Navbar extends Component {
                         <div></div>
                     </div>
                     <ul className="nav-list">
-                        <li className="nav-item">
-                            <Link to='' className="nav-link">About</Link>
+                        <li className="nav-item" >
+                            <Link to="about"
+                                spy={true}
+                                smooth={true}
+                                className="nav-link"
+                            >
+                                About
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to='' className="nav-link">Projects</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to='' className="nav-link">Contact</Link>
+                            <Link to="projects"
+                                spy={true}
+                                smooth={true}
+                                className="nav-link"
+                            >
+                                Projects
+                            </Link>
                         </li>
                     </ul>
                     <div></div>

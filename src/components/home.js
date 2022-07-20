@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import weather from '../styles/media/weather.png'
 import network from '../styles/media/network.png'
-import { Link } from 'react-router-dom'
 import { ExternalLink } from 'react-external-link'
 import { handleEmail } from './handleEmailClipboard'
 
@@ -142,7 +141,7 @@ class Home extends Component {
                             </div>
                         </div>
                         <div className='project-img'>
-                            <img src={weather} alt="weather project image"/>
+                            <img src={weather} alt="weather project"/>
                         </div>
                     </div>
                     <div className='project-display'>
@@ -194,7 +193,7 @@ class Home extends Component {
                             </div>
                         </div>
                         <div className='project-img'>
-                            <img src={network} alt="weather project image"/>
+                            <img src={network} alt="network project"/>
                         </div>
                     </div>
                 </div>

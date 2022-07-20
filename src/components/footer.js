@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
 import { ExternalLink } from 'react-external-link'
 import {handleEmail} from './handleEmailClipboard'
 
