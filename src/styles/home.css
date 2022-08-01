@@ -20,6 +20,18 @@
         justify-content: flex-start;
         margin: 5px 0;
     }
+    .CV-tab {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+    }
+    .CV-tab svg {
+        margin: 0 0 0 10px;
+        fill: #f2e529;
+    }
+    .CV-tab svg:hover {
+        transform: scale(1.5);
+    }
     .social-link {
         margin: 0 15px 0 0;
         transition: all .5s;

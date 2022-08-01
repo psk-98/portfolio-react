@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import weather from '../styles/media/weather.png'
 import network from '../styles/media/network.png'
+import footprints from '../styles/media/footprints.webp'
 import { ExternalLink } from 'react-external-link'
 import { handleEmail } from './handleEmailClipboard'
 
@@ -19,6 +20,14 @@ class Home extends Component {
                         <span>
                             I design and build dynamic and responsive web applications
                         </span>
+                    </div>
+                    <div className='CV-tab'>
+                        Resume / CV
+                        <ExternalLink href='https://www.dropbox.com/s/6oxhydl745kjzv5/Paul-Khoza-CV.pdf?dl=0'>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox='0 0 48 48'>
+                                <path d="m24 32.35-9.65-9.65 2.15-2.15 6 6V8h3v18.55l6-6 2.15 2.15ZM8 40V29.85h3V37h26v-7.15h3V40Z"/>
+                            </svg>
+                        </ExternalLink>
                     </div>
                     <div className='social-links'>
                         <ExternalLink className='social-link' href="https://www.linkedin.com/in/paul-khoza-9956b020a">
@@ -98,6 +107,60 @@ class Home extends Component {
                     <span>Projects</span>
                 </div> 
                 <div className='projects-display'>
+                <div className='project-display'>
+                        <div className='project-content'>
+                            <div className='project-heading'>
+                                <span>Footprints</span>
+                            </div>
+                            <div className='skills-list'>
+                                <div className='skill-block'>
+                                    HTML
+                                </div>
+                                <div className='skill-block'>
+                                    CSS
+                                </div>
+                                <div className='skill-block'>
+                                    JavaScript
+                                </div>
+                                <div className='skill-block'>
+                                    React
+                                </div>
+                                <div className='skill-block'>
+                                    Redux
+                                </div>
+                                <div className='skill-block'>
+                                    Redux persist
+                                </div>
+                                <div className='skill-block'>
+                                    Django
+                                </div>
+                                <div className='skill-block'>
+                                    Django Rest
+                                </div>
+                                <div className='skill-block'>
+                                    PostgreSQL
+                                </div>
+                            </div>
+                            <div className='project-desc'>
+                                <p>
+                                    This is version 1 of a ecommerce web application, with basic functionality such viewing products, sorting by date, price etc and adding to and viewing carting.
+                                    I like sneakers so I decided to make it a shoe store. The application is obviously not complete, with version 2 I will add more filters, search, add a user account and being 
+                                    able place a more realistic order. Stay tuned for the updates
+
+                                </p>
+                            </div>   
+                            <div className='project-link'>
+                                <ExternalLink href='https://footprintz.netlify.app/'>
+                                    <div>
+                                        View project
+                                    </div>
+                                </ExternalLink>
+                            </div>
+                        </div>
+                        <div className='project-img'>
+                            <img src={footprints} alt="footprints project"/>
+                        </div>
+                    </div>
                     <div className='project-display'>
                         <div className='project-content'>
                             <div className='project-heading'>
