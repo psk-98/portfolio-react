@@ -145,7 +145,7 @@ class Home extends Component {
                                 <p>
                                     This is version 1 of a ecommerce web application, with basic functionality such viewing products, sorting by date, price etc and adding to and viewing carting.
                                     I like sneakers so I decided to make it a shoe store. The application is obviously not complete, with version 2 I will add more filters, search, add a user account and being 
-                                    able place a more realistic order. Stay tuned for the updates
+                                    able place a more realistic order, add animations and better error handling. Stay tuned for the updates
 
                                 </p>
                             </div>   
