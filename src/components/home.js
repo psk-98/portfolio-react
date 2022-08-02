@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import weather from '../styles/media/weather.png'
 import network from '../styles/media/network.png'
+import footprints from '../styles/media/footprints.webp'
 import { ExternalLink } from 'react-external-link'
 import { handleEmail } from './handleEmailClipboard'
 
@@ -98,6 +99,60 @@ class Home extends Component {
                     <span>Projects</span>
                 </div> 
                 <div className='projects-display'>
+                    <div className='project-display'>
+                        <div className='project-content'>
+                            <div className='project-heading'>
+                                <span>Footprints</span>
+                            </div>
+                            <div className='skills-list'>
+                                <div className='skill-block'>
+                                    HTML
+                                </div>
+                                <div className='skill-block'>
+                                    CSS
+                                </div>
+                                <div className='skill-block'>
+                                    JavaScript
+                                </div>
+                                <div className='skill-block'>
+                                    React
+                                </div>
+                                <div className='skill-block'>
+                                    Redux
+                                </div>
+                                <div className='skill-block'>
+                                    Redux persist
+                                </div>
+                                <div className='skill-block'>
+                                    Django
+                                </div>
+                                <div className='skill-block'>
+                                    Django Rest
+                                </div>
+                                <div className='skill-block'>
+                                    PostgreSQL
+                                </div>
+                            </div>
+                            <div className='project-desc'>
+                                <p>
+                                    This is version 1 of a ecommerce web application, with basic functionality such viewing products, sorting by date, price etc and adding to and viewing carting.
+                                    I like sneakers so I decided to make it a shoe store. The application is obviously not complete, with version 2 I will add more filters, search, add a user account and being 
+                                    able place a more realistic order, add animations and better error handling. Stay tuned for the updates
+
+                                </p>
+                            </div>   
+                            <div className='project-link'>
+                                <ExternalLink href='https://footprintz.netlify.app/'>
+                                    <div>
+                                        View project
+                                    </div>
+                                </ExternalLink>
+                            </div>
+                        </div>
+                        <div className='project-img'>
+                            <img src={footprints} alt="footprints project"/>
+                        </div>
+                    </div>
                     <div className='project-display'>
                         <div className='project-content'>
                             <div className='project-heading'>
