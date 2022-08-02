@@ -1,17 +1,39 @@
-import React, {Component} from 'react'
+import React from "react";
 import weather from '../styles/media/weather.png'
 import network from '../styles/media/network.png'
 import footprints from '../styles/media/footprints.webp'
 import { ExternalLink } from 'react-external-link'
 import { handleEmail } from './handleEmailClipboard'
+import { useAnimation, motion } from "framer-motion/dist/framer-motion";
+import { useInView } from "react-intersection-observer";
+import { hoverImg, slideInVariants, viewBtn } from "./animations";
 
-class Home extends Component {
 
-    render () {
-    
-        return (
-            <>  
-            <div className='home-section'>
+const Skills = () => {
+
+    const controls = useAnimation()
+
+    const {inView, entry, ref} = useInView()
+    if(inView) 
+    {
+        controls.start({
+            x: 0,
+            transition: {
+                delay: 0.3,
+                duration: 0.2,
+                type: "spring"
+            }
+        })
+    }
+
+
+    return (
+        <>
+            <motion.div className='home-section'
+                variants={slideInVariants}
+                initial="hidden"
+                animate="visible"
+            >
                 <div className='intro'>
                     <div className='intro-name'>
                         <span>Hi, I'm Paul</span>
@@ -39,8 +61,8 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='skills-section' id='about'>
+            </motion.div>
+            <div className='skills-section' id='about' >
                 <div className='section-heading'>
                     <span>My Skills</span>
                 </div>
@@ -94,12 +116,12 @@ class Home extends Component {
                     </div>
                 </div>
             </div>
-            <div className='projects-section' id='projects'>
+            <div className='projects-section' id='projects' >
                 <div className='section-heading'>
                     <span>Projects</span>
                 </div> 
                 <div className='projects-display'>
-                    <div className='project-display'>
+                    <div  className='project-display' >
                         <div className='project-content'>
                             <div className='project-heading'>
                                 <span>Footprints</span>
@@ -141,17 +163,24 @@ class Home extends Component {
 
                                 </p>
                             </div>   
-                            <div className='project-link'>
+                            <div className='project-link' >
                                 <ExternalLink href='https://footprintz.netlify.app/'>
-                                    <div>
+                                    <motion.div
+                                        variants={viewBtn}
+                                        whileHover="hover"
+                                    >
                                         View project
-                                    </div>
+                                    </motion.div>
                                 </ExternalLink>
                             </div>
                         </div>
-                        <div className='project-img'>
-                            <img src={footprints} alt="footprints project"/>
-                        </div>
+                        <motion.div className='project-img'>
+                            <motion.img 
+                                src={footprints} alt="footprints project"
+                                variants={hoverImg}
+                                whileHover="hover"
+                            />
+                        </motion.div>
                     </div>
                     <div className='project-display'>
                         <div className='project-content'>
@@ -189,14 +218,21 @@ class Home extends Component {
                             </div>   
                             <div className='project-link'>
                                 <ExternalLink href='https://paulkhoza.herokuapp.com/weather/'>
-                                    <div>
+                                    <motion.div
+                                        variants={viewBtn}
+                                        whileHover="hover"
+                                    >
                                         View project
-                                    </div>
+                                    </motion.div>
                                 </ExternalLink>
                             </div>
                         </div>
                         <div className='project-img'>
-                            <img src={weather} alt="weather project"/>
+                            <motion.img 
+                                src={weather} alt="weather project"
+                                variants={hoverImg}
+                                whileHover="hover"
+                            />
                         </div>
                     </div>
                     <div className='project-display'>
@@ -241,21 +277,27 @@ class Home extends Component {
                             </div>   
                             <div className='project-link'>
                                 <ExternalLink href='https://paulkhoza.herokuapp.com/'>
-                                    <div>
+                                    <motion.div
+                                        variants={viewBtn}
+                                        whileHover="hover"
+                                    >
                                         View project
-                                    </div>
+                                    </motion.div>
                                 </ExternalLink>
                             </div>
                         </div>
                         <div className='project-img'>
-                            <img src={network} alt="network project"/>
+                            <motion.img 
+                                src={network} alt="network project"
+                                variants={hoverImg}
+                                whileHover="hover"
+                            />
                         </div>
                     </div>
                 </div>
             </div>
-            </>
-        )
-    }
+        </>
+    )
 }
 
-export default Home
+export default Skills

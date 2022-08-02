@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { Link, Events } from 'react-scroll' 
 import { ExternalLink } from 'react-external-link'
+import { motion } from 'framer-motion/dist/framer-motion'
+import { navTopVariants } from './animations'
 
 class Navbar extends Component {
 
@@ -26,7 +28,12 @@ class Navbar extends Component {
     render () {
         return (
             <>
-                <div className='nav-top'>
+                <motion.div 
+                    variants={navTopVariants}
+                    initial="hidden" 
+                    animate="visible" 
+                    className='nav-top'
+                >
                     <div className={this.state.toggle? "burger-wrapper change" : "burger-wrapper"}>
                         <div className="burger" onClick={() => this.Toggle()}>
                             <div className="line line-1"></div>
@@ -58,11 +65,17 @@ class Navbar extends Component {
                         </div>
                     </div>
                     <div className='social-links'>
-                        <ExternalLink href='https://www.linkedin.com/in/paul-khoza-9956b020a' className='social-link'>
+                        <motion.ExternalLink 
+                            href='https://www.linkedin.com/in/paul-khoza-9956b020a' 
+                            className='social-link'
+                            whileHover={{
+                                scale: 1.5
+                            }}
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
                                 <path id="Icon_awesome-linkedin-in" data-name="Icon awesome-linkedin-in" d="M4.7,21H.347V6.98H4.7ZM2.521,5.068A2.533,2.533,0,1,1,5.043,2.522,2.543,2.543,0,0,1,2.521,5.068ZM21,21H16.651V14.176c0-1.627-.033-3.713-2.264-3.713-2.264,0-2.611,1.767-2.611,3.6V21H7.428V6.98H11.6V8.893h.061a4.575,4.575,0,0,1,4.119-2.264C20.19,6.629,21,9.53,21,13.3V21Z" transform="translate(0.5 0.499)" fill="#f2e529" stroke="#f2e529" stroke-width="1"/>
                             </svg>
-                        </ExternalLink>
+                        </motion.ExternalLink>
                         <ExternalLink href='https://github.com/psk-98' className='social-link'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22.794" height="24.021" viewBox="0 0 22.794 24.021">
                                 <path id="Icon_feather-github" data-name="Icon feather-github" d="M9.991,19.464C5,20.962,5,16.967,3,16.467M16.982,22.46V18.595a3.366,3.366,0,0,0-.939-2.607c3.136-.35,6.432-1.538,6.432-6.991a5.432,5.432,0,0,0-1.5-3.744,5.064,5.064,0,0,0-.091-3.766s-1.178-.35-3.905,1.478a13.363,13.363,0,0,0-6.991,0C7.265,1.137,6.086,1.487,6.086,1.487A5.064,5.064,0,0,0,6,5.252,5.433,5.433,0,0,0,4.5,9.027c0,5.413,3.3,6.6,6.432,6.991a3.366,3.366,0,0,0-.939,2.577V22.46" transform="translate(-1.181 0.061)" fill="#f2e529" stroke="#f2e529" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
@@ -74,16 +87,23 @@ class Navbar extends Component {
                             </svg>
                         </div>
                     </div>
-                </div>
-                <nav className={this.state.toggle? "navbar change" : "navbar"}>
-                    <div className='burger-wrapper'>
+                </motion.div>
+                <motion.nav 
+                    className={this.state.toggle? "navbar change" : "navbar"}
+                    layout
+                    transition={{ duration: 0.8}}
+                >
+                    <motion.div className='burger-wrapper' 
+                        layout
+                        transition={{ duration: 0.8}}
+                    >
                         <div className="burger" onClick={() => this.Toggle()}>
-                            <div className="line line-1"></div>
+                            <motion.div className="line line-1" layout transition={{ duration: 0.8}}></motion.div>
                             <div className="line line-2"></div>
                             <div className="line line-3"></div>
                         </div>
                         <div></div>
-                    </div>
+                    </motion.div>
                     <ul className="nav-list">
                         <li className="nav-item" >
                             <Link to="about"
@@ -105,7 +125,7 @@ class Navbar extends Component {
                         </li>
                     </ul>
                     <div></div>
-                </nav>
+                </motion.nav>
                 <div className={this.state.toggle? "overlay changed" : "overlay"}></div>
             </>
         )
