@@ -4,36 +4,15 @@ import network from '../styles/media/network.png'
 import footprints from '../styles/media/footprints.webp'
 import { ExternalLink } from 'react-external-link'
 import { handleEmail } from './handleEmailClipboard'
-import { useAnimation, motion } from "framer-motion/dist/framer-motion";
-import { useInView } from "react-intersection-observer";
-import { hoverImg, slideInVariants, viewBtn } from "./animations";
+import { motion } from "framer-motion/dist/framer-motion";
+import { hoverImg, viewBtn } from "./animations";
 
 
 const Skills = () => {
 
-    const controls = useAnimation()
-
-    const {inView, entry, ref} = useInView()
-    if(inView) 
-    {
-        controls.start({
-            x: 0,
-            transition: {
-                delay: 0.3,
-                duration: 0.2,
-                type: "spring"
-            }
-        })
-    }
-
-
     return (
         <>
-            <motion.div className='home-section'
-                variants={slideInVariants}
-                initial="hidden"
-                animate="visible"
-            >
+            <div className='home-section' >
                 <div className='intro'>
                     <div className='intro-name'>
                         <span>Hi, I'm Paul</span>
@@ -61,7 +40,7 @@ const Skills = () => {
                         </div>
                     </div>
                 </div>
-            </motion.div>
+            </div>
             <div className='skills-section' id='about' >
                 <div className='section-heading'>
                     <span>My Skills</span>
