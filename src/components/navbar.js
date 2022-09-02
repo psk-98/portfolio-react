@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
-import { Link, Events } from 'react-scroll' 
-import { ExternalLink } from 'react-external-link'
 import { motion, useAnimation } from "framer-motion/dist/framer-motion";
-import { line1Variants, line2Variants, line3Variants, navLinkVariants, sectionSelectorVariants, sidebarVariants, ulVariants } from './animations';
+import { line1Variants, line2Variants, line3Variants, navLinkVariants, sidebarVariants, ulVariants } from './animations';
 
 
 export const scroller = (name) => {
@@ -27,11 +25,6 @@ const Navbar = () => {
     const line2Controls = useAnimation()
     const line3Controls = useAnimation() 
 
-    const selector1Controls = useAnimation()
-    const selector2Controls = useAnimation()
-    const selector3Controls = useAnimation()
-    const selector4Controls = useAnimation()
-
     const handleBurger = () => {
         setToggle(!toggle)
 
@@ -49,46 +42,9 @@ const Navbar = () => {
         }
     }
 
-    const handleSelectorClick = (name) => {
-        if (name === "intro") 
-        {
-            window.scrollTo({ top: 8, behavior:'smooth'})
-            selector1Controls.start(sectionSelectorVariants.selected)
-            selector2Controls.start(sectionSelectorVariants.not_selected)
-            selector3Controls.start(sectionSelectorVariants.not_selected)
-            selector4Controls.start(sectionSelectorVariants.not_selected)
-        }
-        if (name === "about") 
-        {
-            scroller(name)
-            selector1Controls.start(sectionSelectorVariants.not_selected)
-            selector2Controls.start(sectionSelectorVariants.selected)
-            selector3Controls.start(sectionSelectorVariants.not_selected)
-            selector4Controls.start(sectionSelectorVariants.not_selected)
-        }
-        if (name === "projects") 
-        {
-            scroller(name)
-            selector1Controls.start(sectionSelectorVariants.not_selected)
-            selector2Controls.start(sectionSelectorVariants.not_selected)
-            selector3Controls.start(sectionSelectorVariants.selected)
-            selector4Controls.start(sectionSelectorVariants.not_selected)
-        }
-        if (name === "contact") 
-        {
-            scroller(name)
-            selector1Controls.start(sectionSelectorVariants.not_selected)
-            selector2Controls.start(sectionSelectorVariants.not_selected)
-            selector3Controls.start(sectionSelectorVariants.not_selected)
-            selector4Controls.start(sectionSelectorVariants.selected)
-        }
-
-    }
-
     const NavLink = ({item}) => {
-        //console.log(item)
         return (
-            <motion.li 
+            <motion.li
                 variants={navLinkVariants} 
                 className="nav-item"
                 whileHover={{ scale: 1.1 }}
@@ -106,53 +62,6 @@ const Navbar = () => {
 
     return (
         <>
-            <div className='section-selectors'>
-                <Link onClick={() => handleSelectorClick('intro')}
-                    to="intro"
-                    spy={true}
-                    smooth={true}
-                >
-                    <motion.div
-                        variants={sectionSelectorVariants}
-                        initial="selected"
-                        animate={selector1Controls}
-                    >
-                    </motion.div>
-                </Link>
-                <Link onClick={() => handleSelectorClick('about')}
-                    to="about"
-                    spy={true}
-                    smooth={true}
-                >
-                    <motion.div
-                        variants={sectionSelectorVariants}
-                        animate={selector2Controls}
-                    >
-                    </motion.div>
-                </Link>
-                <Link onClick={() => handleSelectorClick('projects')}
-                    to="projects"
-                    spy={true}
-                    smooth={true}
-                >
-                    <motion.div
-                        variants={sectionSelectorVariants}
-                        animate={selector3Controls}
-                    >
-                    </motion.div>
-                </Link>
-                <Link onClick={() => handleSelectorClick('contact')}
-                    to="contact"
-                    spy={true}
-                    smooth={true}
-                >
-                    <motion.div
-                        variants={sectionSelectorVariants}
-                        animate={selector4Controls}
-                    >
-                    </motion.div>
-                </Link>
-            </div>
             <motion.div className='navbar'
                 initial={false}
                 animate={toggle? "open" : "closed"}

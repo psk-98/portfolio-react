@@ -1,6 +1,6 @@
 import React from 'react'
-import { motion, useAnimation } from "framer-motion/dist/framer-motion";
-import { viewBtn, hoverImg } from './animations';
+import { motion } from "framer-motion/dist/framer-motion";
+import { viewBtn } from './animations';
 import weather from '../styles/media/weather.png'
 import network from '../styles/media/network.png'
 import footprints from '../styles/media/footprints.webp'

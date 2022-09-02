@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { motion, useAnimation } from "framer-motion/dist/framer-motion";
+import { motion } from "framer-motion/dist/framer-motion";
 import { frontFlipVariants, backFlipVariants, viewBtn } from './animations';
 import cv from '../styles/media/Paul-Khoza-CV.pdf'
 
@@ -7,19 +7,6 @@ const About = () => {
 
     const [flip, setFlip] = useState(false)
     const [copied, setCopied] = useState(false)
-
-    const flipFrontControls = useAnimation()
-    const flipBackControls = useAnimation()
-
-    const handleFlip = () => {
-        flipFrontControls.start(frontFlipVariants.hover)
-        flipBackControls.start(backFlipVariants.hover)
-    }
-
-    const handleUnFlip = () => {
-        flipFrontControls.start(frontFlipVariants.hover)
-        flipBackControls.start(backFlipVariants.hover)
-    }
 
     return (
         <>
