@@ -91,8 +91,6 @@ div.to-contact-btn, .cv-btn{
 }
 .email-background button{
     margin: 0 0 0 2px;
-    color: #f2e529;
-    border: 1px solid #f2e529;
     background: none;
     padding: 2px 4px;
     cursor: pointer;
@@ -202,6 +200,7 @@ div.to-contact-btn, .cv-btn{
         font-size: 25px;
     }
     
+    
     .projects-section {
         margin: 100px 0;
     }
@@ -261,6 +260,58 @@ div.to-contact-btn, .cv-btn{
 }
 
 @media (prefers-color-scheme: dark) {
+    div.to-contact-btn , .cv-btn{
+        border: 2px solid #f2e529;
+    }
+    .scroll-line {
+        background: #f5f5f5;
+    }
+    .section-heading {
+        text-decoration: line-through 2px solid #f2e529;
+    }
+    .email-background button{
+        color: #f2e529;
+        border: 1px solid #f2e529;
+    }
+    .skill-block {
+        background: #f2e529;
+        color: #000;
+    }
+    .project-link div {
+        background-color: #f2e529;
+        box-shadow: rgba(245, 245 ,245, .5) 10px 10px;
+        color: #000;
+    }
+    .project-img img{
+        box-shadow: rgba(245, 245 ,245, .16) 7px 7px;
+    }
+    
+    .contact-section form input, .contact-section form textarea {
+        border: #595959 solid 1px;
+        color: #f5f5f5;
+    }
+    .contact-section form input:focus, .contact-section form textarea:focus{
+        outline: #f5f5f5 solid 2px;
+    }
+    .contact-section form button {
+        border: #595959 1px solid;
+        color: #595959;
+        box-shadow: rgba(245, 245 ,245, .16) 7px 7px;
+    }
+    .contact-section form button.active {
+        border: #f5f5f5 1px solid;
+        color: #f5f5f5;
+        box-shadow: rgba(245, 245 ,245, .16) 7px 7px;
+    }
+
+
+    @media (min-width: 768px) {
+        .contact-section form button.active {
+            box-shadow: rgba(245, 245 ,245, .16) 10px 10px;
+        }
+    }
+}
+@media (prefers-color-scheme: light) {
     div.to-contact-btn , .cv-btn{
         border: 2px solid #f2e529;
     }
