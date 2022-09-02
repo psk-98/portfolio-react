@@ -1,0 +1,8 @@
+change navbar for bigger screen
+fix selector width for bigger screens
+contact me btn hover animation
+section selection fix for scrolling
+add hover on background links and button
+add url links to background links e.g github
+add hover animation on form send button and footer links
+change on send button when form is valid

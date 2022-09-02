@@ -1,115 +1,265 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import { Link, Events } from 'react-scroll' 
 import { ExternalLink } from 'react-external-link'
+import { motion, useAnimation } from "framer-motion/dist/framer-motion";
+import { line1Variants, line2Variants, line3Variants, navLinkVariants, sectionSelectorVariants, sidebarVariants, ulVariants } from './animations';
 
-class Navbar extends Component {
 
-    state = {
-        toggle: false,
-        navState: "main"
-    }
-
-    Toggle = () => {
-        this.setState({
-            toggle: !this.state.toggle,
+export const scroller = (name) => {
+    console.log(name)
+    const element = document.getElementById(name)
+    if (element)
+    {
+        element.scrollIntoView({
+            behavior: 'smooth'
         })
-    }
-
-    componentDidMount(e) {
-        Events.scrollEvent.register('end', (to, element) => {
-            this.setState({
-                toggle: false,
-            })
-        })
-    }
-
-    render () {
-        return (
-            <>
-                <div className='nav-top'>
-                    <div className={this.state.toggle? "burger-wrapper change" : "burger-wrapper"}>
-                        <div className="burger" onClick={() => this.Toggle()}>
-                            <div className="line line-1"></div>
-                            <div className="line line-2"></div>
-                            <div className="line line-3"></div>
-                        </div>
-                    </div>
-                    <div className='logo'>
-                        <Link to='/'>
-                            Paul Khoza
-                        </Link>
-                    </div>
-                    <div className='nav-links'>
-                        <div className='nav-link'>
-                            <Link to="about"
-                                spy={true}
-                                smooth={true}
-                            >
-                                About
-                            </Link>
-                        </div>
-                        <div className='nav-link'>
-                            <Link to="projects"
-                                spy={true}
-                                smooth={true}
-                            >
-                                Projects
-                            </Link>
-                        </div>
-                    </div>
-                    <div className='social-links'>
-                        <ExternalLink href='https://www.linkedin.com/in/paul-khoza-9956b020a' className='social-link'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-                                <path id="Icon_awesome-linkedin-in" data-name="Icon awesome-linkedin-in" d="M4.7,21H.347V6.98H4.7ZM2.521,5.068A2.533,2.533,0,1,1,5.043,2.522,2.543,2.543,0,0,1,2.521,5.068ZM21,21H16.651V14.176c0-1.627-.033-3.713-2.264-3.713-2.264,0-2.611,1.767-2.611,3.6V21H7.428V6.98H11.6V8.893h.061a4.575,4.575,0,0,1,4.119-2.264C20.19,6.629,21,9.53,21,13.3V21Z" transform="translate(0.5 0.499)" fill="#f2e529" stroke="#f2e529" stroke-width="1"/>
-                            </svg>
-                        </ExternalLink>
-                        <ExternalLink href='https://github.com/psk-98' className='social-link'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22.794" height="24.021" viewBox="0 0 22.794 24.021">
-                                <path id="Icon_feather-github" data-name="Icon feather-github" d="M9.991,19.464C5,20.962,5,16.967,3,16.467M16.982,22.46V18.595a3.366,3.366,0,0,0-.939-2.607c3.136-.35,6.432-1.538,6.432-6.991a5.432,5.432,0,0,0-1.5-3.744,5.064,5.064,0,0,0-.091-3.766s-1.178-.35-3.905,1.478a13.363,13.363,0,0,0-6.991,0C7.265,1.137,6.086,1.487,6.086,1.487A5.064,5.064,0,0,0,6,5.252,5.433,5.433,0,0,0,4.5,9.027c0,5.413,3.3,6.6,6.432,6.991a3.366,3.366,0,0,0-.939,2.577V22.46" transform="translate(-1.181 0.061)" fill="#f2e529" stroke="#f2e529" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-                            </svg>
-                        </ExternalLink>
-                        <div title='copy my email' className='social-link'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="27.25" height="22" viewBox="0 0 27.25 22">
-                                <path id="Icon_material-email" data-name="Icon material-email" d="M26.625,6h-21A2.621,2.621,0,0,0,3.013,8.625L3,24.375A2.633,2.633,0,0,0,5.625,27h21a2.633,2.633,0,0,0,2.625-2.625V8.625A2.633,2.633,0,0,0,26.625,6Zm0,5.25-10.5,6.563L5.625,11.25V8.625l10.5,6.563,10.5-6.562Z" transform="translate(-2.5 -5.5)" fill="#f2e529" stroke="#f2e529" stroke-width="1"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <nav className={this.state.toggle? "navbar change" : "navbar"}>
-                    <div className='burger-wrapper'>
-                        <div className="burger" onClick={() => this.Toggle()}>
-                            <div className="line line-1"></div>
-                            <div className="line line-2"></div>
-                            <div className="line line-3"></div>
-                        </div>
-                        <div></div>
-                    </div>
-                    <ul className="nav-list">
-                        <li className="nav-item" >
-                            <Link to="about"
-                                spy={true}
-                                smooth={true}
-                                className="nav-link"
-                            >
-                                About
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="projects"
-                                spy={true}
-                                smooth={true}
-                                className="nav-link"
-                            >
-                                Projects
-                            </Link>
-                        </li>
-                    </ul>
-                    <div></div>
-                </nav>
-                <div className={this.state.toggle? "overlay changed" : "overlay"}></div>
-            </>
-        )
     }
 }
 
-export default  Navbar
+const list = ["about", "projects", "contact", "my cv"]
+
+
+
+const Navbar = () => {
+    const [toggle, setToggle] = useState(false)
+
+    const line1Controls = useAnimation()
+    const line2Controls = useAnimation()
+    const line3Controls = useAnimation() 
+
+    const selector1Controls = useAnimation()
+    const selector2Controls = useAnimation()
+    const selector3Controls = useAnimation()
+    const selector4Controls = useAnimation()
+
+    const handleBurger = () => {
+        setToggle(!toggle)
+
+        if (!toggle)
+        {
+            line1Controls.start(line1Variants.open)
+            line2Controls.start(line2Variants.open)
+            line3Controls.start(line3Variants.open)
+        }
+        else 
+        {
+            line1Controls.start(line1Variants.closed)
+            line2Controls.start(line2Variants.closed)
+            line3Controls.start(line3Variants.closed)
+        }
+    }
+
+    const handleSelectorClick = (name) => {
+        if (name === "intro") 
+        {
+            window.scrollTo({ top: 8, behavior:'smooth'})
+            selector1Controls.start(sectionSelectorVariants.selected)
+            selector2Controls.start(sectionSelectorVariants.not_selected)
+            selector3Controls.start(sectionSelectorVariants.not_selected)
+            selector4Controls.start(sectionSelectorVariants.not_selected)
+        }
+        if (name === "about") 
+        {
+            scroller(name)
+            selector1Controls.start(sectionSelectorVariants.not_selected)
+            selector2Controls.start(sectionSelectorVariants.selected)
+            selector3Controls.start(sectionSelectorVariants.not_selected)
+            selector4Controls.start(sectionSelectorVariants.not_selected)
+        }
+        if (name === "projects") 
+        {
+            scroller(name)
+            selector1Controls.start(sectionSelectorVariants.not_selected)
+            selector2Controls.start(sectionSelectorVariants.not_selected)
+            selector3Controls.start(sectionSelectorVariants.selected)
+            selector4Controls.start(sectionSelectorVariants.not_selected)
+        }
+        if (name === "contact") 
+        {
+            scroller(name)
+            selector1Controls.start(sectionSelectorVariants.not_selected)
+            selector2Controls.start(sectionSelectorVariants.not_selected)
+            selector3Controls.start(sectionSelectorVariants.not_selected)
+            selector4Controls.start(sectionSelectorVariants.selected)
+        }
+
+    }
+
+    const NavLink = ({item}) => {
+        //console.log(item)
+        return (
+            <motion.li 
+                variants={navLinkVariants} 
+                className="nav-item"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                    scroller(item)
+                    setToggle(!toggle)
+                    handleBurger()
+                }}    
+            >
+                {item}
+            </motion.li>
+        )
+    }
+
+    return (
+        <>
+            <div className='section-selectors'>
+                <Link onClick={() => handleSelectorClick('intro')}
+                    to="intro"
+                    spy={true}
+                    smooth={true}
+                >
+                    <motion.div
+                        variants={sectionSelectorVariants}
+                        initial="selected"
+                        animate={selector1Controls}
+                    >
+                    </motion.div>
+                </Link>
+                <Link onClick={() => handleSelectorClick('about')}
+                    to="about"
+                    spy={true}
+                    smooth={true}
+                >
+                    <motion.div
+                        variants={sectionSelectorVariants}
+                        animate={selector2Controls}
+                    >
+                    </motion.div>
+                </Link>
+                <Link onClick={() => handleSelectorClick('projects')}
+                    to="projects"
+                    spy={true}
+                    smooth={true}
+                >
+                    <motion.div
+                        variants={sectionSelectorVariants}
+                        animate={selector3Controls}
+                    >
+                    </motion.div>
+                </Link>
+                <Link onClick={() => handleSelectorClick('contact')}
+                    to="contact"
+                    spy={true}
+                    smooth={true}
+                >
+                    <motion.div
+                        variants={sectionSelectorVariants}
+                        animate={selector4Controls}
+                    >
+                    </motion.div>
+                </Link>
+            </div>
+            <motion.div className='navbar'
+                initial={false}
+                animate={toggle? "open" : "closed"}
+                variants={sidebarVariants}
+            >
+                <motion.ul className='nav-list'
+                    variants={ulVariants}
+                    animate={toggle ? "open" : "closed"}
+                >
+                    {list.map((item, index) => {
+                        return <NavLink item={item} onClick={() => handleBurger()} />
+                    })}
+                </motion.ul>
+            </motion.div>
+            <div className='nav-top'>
+                <div className='burger' onClick={() => handleBurger()}>
+                    <motion.div 
+                        variants={line1Variants}
+                        className="line line-1"
+                        animate={line1Controls}
+                    >
+                    </motion.div>
+                    <motion.div 
+                        className="line line-2"
+                        variants={line2Variants}
+                        animate={line2Controls}
+                    >
+                    </motion.div>
+                    <motion.div 
+                        className="line line-3"
+                        variants={line3Variants}
+                        animate={line3Controls}
+                    >
+                    </motion.div>
+                </div>
+                <div className='logo color'>
+                    Paul Khoza
+                </div>
+                <div></div>
+            </div>
+            <div className='nav-lg'>
+                <div className='logo color'>
+                    Paul Khoza
+                </div> 
+                <motion.div className='nav-link'
+                    whileHover={{scale: 1.2}}
+                    whileTape={{scale: 0.8}}
+                    onClick={() => scroller('about')}
+                >
+                    About
+                </motion.div>
+                <motion.div className='nav-link'
+                    whileHover={{scale: 1.2}}
+                    whileTape={{scale: 0.8}}
+                    onClick={() => scroller('projects')}
+                >
+                    Projects
+                </motion.div>
+                <motion.div className='nav-link'
+                    whileHover={{scale: 1.2}}
+                    whileTape={{scale: 0.8}}
+                    onClick={() => scroller('contact')}
+                >
+                    contact
+                </motion.div>
+                <motion.div className='nav-link'
+                    whileHover={{scale: 1.2}}
+                    whileTape={{scale: 0.8}}
+                    onClick={() => scroller('my cv')}
+                >
+                    My CV
+                </motion.div>
+                <div className='social-links'>
+                    <a href='https://github.com/psk-98' target="_blank" rel='noreferrer'>
+                        <motion.div
+                            whileHover={{scale: 1.2}}
+                            whileTape={{scale: 0.8}}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 28.928 31.038">
+                                <path id="Icon_feather-github" data-name="Icon feather-github" d="M12.987,27.18C5.854,29.32,5.854,23.613,3,22.9M22.975,31.46V25.938a4.808,4.808,0,0,0-1.341-3.724c4.48-.5,9.188-2.2,9.188-9.987a7.761,7.761,0,0,0-2.139-5.349,7.234,7.234,0,0,0-.129-5.38S26.87,1,22.975,3.61a19.09,19.09,0,0,0-9.987,0C9.092,1,7.409,1.5,7.409,1.5A7.234,7.234,0,0,0,7.28,6.877,7.762,7.762,0,0,0,5.14,12.27c0,7.733,4.708,9.431,9.188,9.987a4.808,4.808,0,0,0-1.341,3.681V31.46" transform="translate(-2.394 -0.922)" fill="none" stroke="#f2e529" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                            </svg>
+                        </motion.div>
+                    </a>
+                    <a href='https://www.linkedin.com/in/paul-khoza-9956b020a' target="_blank" rel='noreferrer'>
+                        <motion.div
+                            whileHover={{scale: 1.2}}
+                            whileTape={{scale: 0.8}}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 31.001 31">
+                                <path id="Icon_awesome-linkedin-in" data-name="Icon awesome-linkedin-in" d="M6.715,30H.5V9.971h6.22ZM3.6,7.239A3.619,3.619,0,1,1,7.2,3.6,3.632,3.632,0,0,1,3.6,7.239ZM29.994,30H23.788V20.25c0-2.324-.047-5.3-3.234-5.3-3.234,0-3.729,2.525-3.729,5.136V30H10.611V9.971h5.965V12.7h.087a6.536,6.536,0,0,1,5.885-3.234C28.844,9.469,30,13.614,30,19V30Z" transform="translate(0.5 0.499)" fill="none" stroke="#f2e529" stroke-width="1"/>
+                            </svg>
+                        </motion.div>
+                    </a>
+                    <motion.div 
+                        whileHover={{scale: 1.2}}
+                        whileTape={{scale: 0.8}}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg"  height="20" viewBox="0 0 38.5 31">
+                            <path id="Icon_material-email" data-name="Icon material-email" d="M36.75,6h-30A3.745,3.745,0,0,0,3.019,9.75L3,32.25A3.761,3.761,0,0,0,6.75,36h30a3.761,3.761,0,0,0,3.75-3.75V9.75A3.761,3.761,0,0,0,36.75,6Zm0,7.5-15,9.375L6.75,13.5V9.75l15,9.375,15-9.375Z" transform="translate(-2.5 -5.5)" fill="none" stroke="#f2e529" stroke-width="1"/>
+                        </svg>
+                    </motion.div>
+                    
+                </div>
+            </div>
+            
+        </>
+    )
+}
+
+export default Navbar

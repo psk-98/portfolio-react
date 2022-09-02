@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Home from './components/home';
-import Navbar from './components/navbar';
-import Footer from './components/footer';
+
 
 import reportWebVitals from './reportWebVitals';
 
@@ -13,20 +10,23 @@ import './styles/home.css'
 import './styles/navbar.css'
 import './styles/footer.css'
 
+import Navbar from './components/navbar';
+import Intro from './components/intro';
+import About from './components/about';
+import Projects from './components/projects'
+import Contact from './components/contact'
+import Footer from './components/footer'
+
+
 ReactDOM.render(
-  <Router>
-    <div className='container'>
-      <Navbar/>
-      <Routes>
-        <Route exact path='/' element={<Home/>} />
-        <Route path='/github' element={() => {
-          window.location.href('https://github.com/psk-98')
-          return null
-        }}/>
-      </Routes>
-      <Footer/>
-    </div>
-  </Router>,
+  <div className='container'>
+    <Navbar/>
+    <Intro/>
+    <About/>
+    <Projects/>
+    <Contact/>
+    <Footer/>
+  </div>,
   document.getElementById('root')
 );
 
