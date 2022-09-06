@@ -158,6 +158,7 @@ const Navbar = () => {
                     <motion.div 
                         whileHover={{scale: 1.2}}
                         whileTape={{scale: 0.8}}
+                        onClick={() => scroller('my cv')}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg"  height="20" viewBox="0 0 38.5 31">
                             <path id="Icon_material-email" data-name="Icon material-email" d="M36.75,6h-30A3.745,3.745,0,0,0,3.019,9.75L3,32.25A3.761,3.761,0,0,0,6.75,36h30a3.761,3.761,0,0,0,3.75-3.75V9.75A3.761,3.761,0,0,0,36.75,6Zm0,7.5-15,9.375L6.75,13.5V9.75l15,9.375,15-9.375Z" transform="translate(-2.5 -5.5)" fill="none" stroke="#f2e529" stroke-width="1"/>
