@@ -61,7 +61,7 @@ const About = () => {
                             I am final year student studying Intelligent Industrial Systems at Tshwane University of Technology.
                         </p>
                         <p>
-                                My web development journey started with the CS50's Web Programming with Python and JavaScript and ever I've
+                                My web development journey started with the CS50's Web Programming with Python and JavaScript and ever since I've
                                 been working to be the best web developer I can be. I am self motivated, able to work independtly or collabrativley.
                         </p>
                         <p>
